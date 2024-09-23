@@ -66,6 +66,7 @@ TestA Testing Letters
 
 1. 1. Build and run CiCo
 2. Test abc
+3. abc shows in the field
 
 
 ## Expected results
