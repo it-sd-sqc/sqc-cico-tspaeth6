@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.*;
 import java.util.TimerTask;
+import javax.print.Doc;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.text.*;
@@ -41,7 +42,11 @@ public class Main {
     public void insertString(FilterBypass fb, int offset, String stringToAdd, AttributeSet attr)
         throws BadLocationException
     {
-      if (fb.getDocument() != null) {
+      Document doc = fb.getDocument();
+      String currentContent = doc.getText(0, doc.getLength());
+
+
+      if (currentContent.length() + stringToAdd.length() <= MAX_LENGTH && isNumeric(stringToAdd)) {
         super.insertString(fb, offset, stringToAdd, attr);
       }
       else {
@@ -53,12 +58,22 @@ public class Main {
     public void replace(FilterBypass fb, int offset, int lengthToDelete, String stringToAdd, AttributeSet attr)
         throws BadLocationException
     {
-      if (fb.getDocument() != null) {
+
+      Document doc = fb.getDocument();
+      String currentContent = doc.getText(0, doc.getLength());
+
+      int newLength = currentContent.length() - lengthToDelete + stringToAdd.length();
+      if (fb.getDocument() != null && isNumeric(stringToAdd) && (fb.getDocument().getLength() + stringToAdd.length() - lengthToDelete <= MAX_LENGTH)) {
         super.replace(fb, offset, lengthToDelete, stringToAdd, attr);
       }
       else {
         Toolkit.getDefaultToolkit().beep();
       }
+    }
+
+    
+    private boolean isNumeric(String str) {
+      return str.matches("\\d*");
     }
   }
 
