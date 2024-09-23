@@ -73,6 +73,7 @@ public class Main {
 
     
     private boolean isNumeric(String str) {
+
       return str.matches("\\d*");
     }
   }
