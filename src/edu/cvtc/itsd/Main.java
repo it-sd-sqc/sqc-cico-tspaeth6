@@ -86,8 +86,10 @@ public class Main {
   }
 
   // Revert to the main panel after a button press ////////////////////////////
+  // TODO 5-8 is here
   public static class Handler implements ActionListener {
     public void actionPerformed(ActionEvent evt) {
+
       Main.doneProcessing();
     }
   }
@@ -225,7 +227,7 @@ public class Main {
   }
 
   // Display name and new status //////////////////////////////////////////////
-  // Module 3 tickets: Display user name and new status. Doesn't require a
+  // Module 3 tickets: Display username and new status. Doesn't require a
   // method and can be done where this is called instead.
   private static void updateStateLabels(String name, boolean isCheckedInNow) {
     labelUser.setText(name);
@@ -305,6 +307,15 @@ public class Main {
     labelState.setForeground(Color.magenta);
     panelStatus.add(labelState);
 
+    // TODO
+
+    JButton returnButton = new JButton("Return");
+    returnButton.setAlignmentX(JComponent.CENTER_ALIGNMENT);
+    returnButton.addActionListener(new Handler());
+    returnButton.setForeground(Color.green);
+    panelStatus.add(returnButton);
+
+
     panelStatus.add(Box.createVerticalGlue());
 
     // Error panel ////////////////////////////////////////////////////////////
@@ -322,6 +333,7 @@ public class Main {
     labelReason.setForeground(Color.yellow);
     panelError.add(labelReason);
 
+    // TODO this is to return from the incorrect page
     buttonAcknowledge = new JButton("OK");
     buttonAcknowledge.addActionListener(handler);
     buttonAcknowledge.setAlignmentX(JComponent.CENTER_ALIGNMENT);
