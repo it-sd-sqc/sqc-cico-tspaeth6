@@ -71,3 +71,16 @@ TestA Testing Letters
 
 ## Expected results
 *  Nothing should show up in the box
+
+Module5, 5-8 CiCo: Use your existing repository
+
+TestA
+1. Open GitBash in your proper directory
+2. ./build.sh to make sure your file is up to date
+3. ./run.sh the file
+4. Enter 00000000 to see the status page
+5. Click the return box to return to the main page
+
+## Expected results
+* A box to appear so we can quickly return to the Main page so the next person can scan in/out
+
