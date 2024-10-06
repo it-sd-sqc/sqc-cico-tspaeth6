@@ -84,3 +84,11 @@ TestA
 ## Expected results
 * A box to appear so we can quickly return to the Main page so the next person can scan in/out
 
+# Module 6: Change the color scheme
+
+## Test steps
+1. Build and run CiCo.
+
+## Expected results
+* The colors in the GUI should be more subdued and monochromatic.
+
