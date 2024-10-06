@@ -238,10 +238,17 @@ public class Main {
   // Our GUI code is very similar; however, we want to keep it explicit.
   @SuppressWarnings("DuplicatedCode")
   public static void main(String[] args) {
+    
     // Initialize variables.
     db = null;
     timer = new java.util.Timer("CiCo timeout timer");
     Handler handler = new Handler();
+    Color text = new Color(46, 29, 5);
+    Color background = new Color(255, 239, 213);
+    Color base = new Color(125, 85, 26);
+    Color errorBase = new Color(35, 26, 13);
+    Color errorText = new Color(250, 170, 3);
+    Color successBase = new Color(175, 137, 59);
 
     // Create our GUI.
     JFrame frame = new JFrame();
@@ -259,13 +266,13 @@ public class Main {
     panelMain.setMinimumSize(new Dimension(320, 240));
     panelMain.setPreferredSize(new Dimension(640, 480));
     panelMain.setMaximumSize(new Dimension(640, 480));
-    panelMain.setBackground(Color.black);
+    panelMain.setBackground(base);
 
     panelMain.add(Box.createVerticalGlue());
     JLabel labelDirective = new JLabel("Scan card", JLabel.LEADING);
     labelDirective.setFont(fontMain);
     labelDirective.setAlignmentX(JComponent.CENTER_ALIGNMENT);
-    labelDirective.setForeground(Color.cyan);
+    labelDirective.setForeground(text);
     panelMain.add(labelDirective);
 
     fieldNumber = new JTextField();
@@ -274,14 +281,15 @@ public class Main {
     fieldNumber.setPreferredSize(new Dimension(200, 32));
     fieldNumber.setMaximumSize(new Dimension(200, 32));
     fieldNumber.setAlignmentX(JComponent.CENTER_ALIGNMENT);
-    fieldNumber.setBackground(Color.green);
-    fieldNumber.setForeground(Color.magenta);
+    fieldNumber.setBackground(background);
+    fieldNumber.setForeground(text);
     panelMain.add(fieldNumber);
 
     JButton updateButton = new JButton("Update");
     updateButton.setAlignmentX(JComponent.CENTER_ALIGNMENT);
     updateButton.addActionListener(new Update());
-    updateButton.setForeground(Color.green);
+    updateButton.setForeground(text);
+    updateButton.setBackground(background);
     panelMain.add(updateButton);
 
     panelMain.add(Box.createVerticalGlue());
@@ -292,19 +300,19 @@ public class Main {
     panelStatus.setMinimumSize(new Dimension(320, 240));
     panelStatus.setPreferredSize(new Dimension(640, 480));
     panelStatus.setMaximumSize(new Dimension(640, 480));
-    panelStatus.setBackground(Color.blue);
+    panelStatus.setBackground(successBase);
 
     panelStatus.add(Box.createVerticalGlue());
     labelUser = new JLabel("Registrant", JLabel.LEADING);
     labelUser.setFont(fontMain);
     labelUser.setAlignmentX(JComponent.CENTER_ALIGNMENT);
-    labelUser.setForeground(Color.yellow);
+    labelUser.setForeground(text);
     panelStatus.add(labelUser);
 
     labelState = new JLabel("updated", JLabel.LEADING);
     labelState.setFont(fontMain);
     labelState.setAlignmentX(JComponent.CENTER_ALIGNMENT);
-    labelState.setForeground(Color.magenta);
+    labelState.setForeground(text);
     panelStatus.add(labelState);
 
     // TODO
@@ -312,7 +320,7 @@ public class Main {
     JButton returnButton = new JButton("Return");
     returnButton.setAlignmentX(JComponent.CENTER_ALIGNMENT);
     returnButton.addActionListener(new Handler());
-    returnButton.setForeground(Color.green);
+    returnButton.setForeground(text);
     panelStatus.add(returnButton);
 
 
@@ -324,20 +332,21 @@ public class Main {
     panelError.setMinimumSize(new Dimension(320, 240));
     panelError.setPreferredSize(new Dimension(640, 480));
     panelError.setMaximumSize(new Dimension(640, 480));
-    panelError.setBackground(Color.red);
+    panelError.setBackground(errorBase);
 
     panelError.add(Box.createVerticalGlue());
     labelReason = new JLabel("", JLabel.LEADING);
     labelReason.setFont(fontMain);
     labelReason.setAlignmentX(JComponent.CENTER_ALIGNMENT);
-    labelReason.setForeground(Color.yellow);
+    labelReason.setForeground(errorText);
     panelError.add(labelReason);
 
     // TODO this is to return from the incorrect page
     buttonAcknowledge = new JButton("OK");
     buttonAcknowledge.addActionListener(handler);
     buttonAcknowledge.setAlignmentX(JComponent.CENTER_ALIGNMENT);
-    buttonAcknowledge.setForeground(Color.red);
+    buttonAcknowledge.setForeground(text);
+    buttonAcknowledge.setBackground(background);
     panelError.add(buttonAcknowledge);
     panelError.add(Box.createVerticalGlue());
 
@@ -350,8 +359,8 @@ public class Main {
     // Module 2 ticket: Add version number.
     JLabel labelMeta = new JLabel("CiCo v" + VERSION);
     labelMeta.setOpaque(true);
-    labelMeta.setBackground(Color.darkGray);
-    labelMeta.setForeground(Color.white);
+    labelMeta.setBackground(background);
+    labelMeta.setForeground(text);
     labelMeta.setBorder(new EmptyBorder(10, 10, 10, 10));
     labelMeta.setMinimumSize(new Dimension(320, 32));
     labelMeta.setPreferredSize(new Dimension(640, 32));
